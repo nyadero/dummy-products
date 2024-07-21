@@ -40,6 +40,6 @@ export class AppComponent {
     // Fallback in case some stylesheets are cached and 'load' event is not triggered
     setTimeout(() => {
       this.isLoading = false;
-    }, 5000); // Adjust the timeout duration as needed
+    }, 100); // Adjust the timeout duration as needed
   }
 }
