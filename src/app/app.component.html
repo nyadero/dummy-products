@@ -1,4 +1,9 @@
 
-<main class="bg-slate-100 min-h-screen">
-    <router-outlet></router-outlet>
+<main class="bg-slate-100">
+
+    <div *ngIf="isLoading" class="h-screen flex items-center justify-center">
+        <mat-spinner></mat-spinner>
+    </div>
+
+    <router-outlet *ngIf="!isLoading"></router-outlet>
 </main>
