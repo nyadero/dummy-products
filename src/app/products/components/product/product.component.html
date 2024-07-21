@@ -1,0 +1,39 @@
+<a [routerLink]="['/products', product.id]">
+<div class="bg-white rounded shadow p-2 ">
+    <div class="flex items-center justify-between">
+        <h3>
+            {{product.title}}
+        </h3>
+    
+        <h4 class="text-blue-400 ">Price: {{product.price}}</h4>
+    </div>
+   
+    <div class="bg-slate-100 h-60 flex items-center justify-center overflow-hidden rounded shadow mt-2">
+        <img src="{{product.thumbnail}}" alt="" class="">
+    </div>
+
+    <div class="flex items-center gap-3 justify-between mt-2">
+       <!-- stock -->
+        <div>
+            <h3 class="mb-2">Stock</h3>
+            {{product.stock}}
+        </div>
+        <!-- discount percentage -->
+        <div>
+            <h3>Discount</h3>
+            {{product.discountPercentage}}%
+        </div>
+         <!-- category -->
+         <div>
+            <h3>Category</h3>
+            {{product.category}}
+        </div>
+        <!-- availability -->
+        <div>
+            <h3>Availability</h3>
+            {{product.availabilityStatus}}
+        </div>
+    </div>
+</div>
+</a>
+

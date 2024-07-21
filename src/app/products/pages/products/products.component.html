@@ -1,0 +1,42 @@
+<!-- <p>products works!</p> -->
+
+<!-- {{productCategories | json}} -->
+<!-- <div class="flex items-center gap-3 overflow-x-auto my-5 w-max mx-auto max-sm:w-full max-sm:px-2">
+    <a href="/products/category/{{category.slug}}" *ngFor="let category of productCategories">
+        <button class="bg-blue-500 p-2 rounded shadow text-white text-nowrap text-sm">{{category.name}}</button>
+    </a>
+</div> -->
+
+<div class="w-max mx-auto my-4 max-sm:w-full max-sm:px-2">
+    <div class="flex items-center gap-2">
+        <input [(ngModel)]="searchValue"  type="text" class="p-2 rounded w-full" placeholder="Search products" >
+        <button (click)="onSearch()"  class="bg-blue-400 p-2 rounded shadow text-white">Search</button>
+    </div>
+    
+    {{searchValue}}
+    <!-- <app-searchbar></app-searchbar> -->
+</div>
+
+<div class="flex items-center gap-3 overflow-x-auto my-5 w-max mx-auto max-sm:w-full">
+    <a href="/products/category/{{category}}" *ngFor="let category of productsCategories" class="text-sm text-nowrap p-2" > {{category}} </a>
+</div>
+
+
+<div *ngIf="isLoading" class="w-max mx-auto flex items-center justify-center max-sm:w-full min-h-screen">
+    <mat-spinner></mat-spinner>
+</div>
+
+<div *ngIf="!isLoading" class="w-max mx-auto max-sm:w-full max-sm:px-2">
+    <div *ngIf="products.length" class=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 max-sm:grid-cols-1 gap-4 ">
+        <app-product *ngFor="let product of products" [product]="product" ></app-product>
+    </div>
+
+    <!-- <div *ngIf="products.length">
+        <app-pagination [paginationData]="paginationData" path="products" ></app-pagination>
+    </div> -->
+
+    <div *ngIf="!products.length">
+        <h3>No products found</h3>
+    </div>
+</div>
+

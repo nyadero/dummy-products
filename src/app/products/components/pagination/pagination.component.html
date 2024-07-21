@@ -1,0 +1,26 @@
+<div class="my-4 flex items-center gap-2 justify-center">
+    <!-- Previous Button -->
+    <a *ngIf="currentPage > 1" [routerLink]="[path]" [queryParams]="{ page: currentPage - 1 }">
+      <button class="flex items-center justify-center p-2 w-7 h-7">
+        <mat-icon class="text-base">arrow_back_ios</mat-icon>
+      </button>
+    </a>
+    
+    <!-- Page Numbers -->
+    <ng-container *ngFor="let chunk of getPageNumberChunks()">
+      <a *ngFor="let pageNumber of chunk" [routerLink]="[path]" [queryParams]="{ page: pageNumber }"
+        class="default-styles" [ngClass]="{'bg-blue-500': currentPage == pageNumber, 'bg-zinc-600': currentPage != pageNumber}">
+        {{ pageNumber }}
+      </a>
+    </ng-container>
+    
+    <!-- Next Button -->
+    <a *ngIf="currentPage < totalPages" [routerLink]="[path]" [queryParams]="{ page: currentPage + 1 }">
+      <button class="flex items-center justify-center p-2 w-7 h-7 bg-blue-600">
+        <mat-icon class="text-base">arrow_forward_ios</mat-icon>
+      </button>
+    </a>
+  </div>
+
+{{paginationData | json}}
+  
